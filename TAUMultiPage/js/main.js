@@ -38,8 +38,29 @@
 	js.fillStyle = "blue";
 	js.fillText("canvas",70,140);
 	
+	var flag = true;
+	for(var i = 0; i<8; i++){
+		for(var j = 0; j<8; j++){
+			if(flag){
+				console.log("j=",j,"i=",i);
+				fillChess(j*40, i*40);
+			}
+			flag = !flag;
+		}
+		flag = !flag;
+	}
+	
 	setInterval(shakeCircle, 100);
+
 } () );
+
+function fillChess(curx, cury){
+	var r = document.getElementById("canvass");
+	var re = r.getContext("2d");
+	re.fillStyle="black";
+	re.fillRect(curx,cury,40,40);
+}
+
 var thereispic = false;
 var thereisres = false;
 
